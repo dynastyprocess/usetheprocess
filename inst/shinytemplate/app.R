@@ -1,11 +1,5 @@
 pkgload::load_all()
 
-# conn <- dbConnect(odbc(), "RInformXL", uid = "analyzer", pwd = "analyzer")
-#
-# # {preload data from database}
-#
-# dbDisconnect(conn)
-
 ui <- dashboardPage(
   title = glue("CHAP: {pkgload::pkg_name()}"),
   sidebar_collapsed = TRUE,
