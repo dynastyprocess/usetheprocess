@@ -1,0 +1,53 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# usetheprocess
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+<!-- badges: end -->
+
+This package sets up a usethis-like framework for R and app dev.
+
+## Installation
+
+You can install `usetheprocess` from either r-universe or remotes:
+
+```{r eval = FALSE}
+install.packages("usetheprocess",repos = "https://dynastyprocess.r-universe.dev")
+
+# or
+
+# install.packages("remotes")
+remotes::install_github("dynastyprocess/usetheprocess") 
+```
+
+## Usage
+
+Create the framework for a new Shiny app by running:
+
+```{r eval = FALSE}
+usetheprocess::app_create(path = "demo/new_app")
+```
+```{r echo = FALSE}
+usetheprocess::app_create("demo/new_app", open = FALSE)
+```
+
+and it will build an app skeleton.
+
+```{r include = FALSE}
+fs::dir_delete("demo")
+```
+
