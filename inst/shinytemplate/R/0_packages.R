@@ -2,8 +2,6 @@
 suppressPackageStartupMessages({
 
   # Data Import
-  library(DBI)
-  library(odbc)
   library(arrow)
 
   # Data Manipulation
@@ -13,7 +11,6 @@ suppressPackageStartupMessages({
   library(janitor)
   library(lubridate)
   library(hrbrthemes)
-
   # hrbrthemes::import_plex_sans()
 
   # Shiny libraries
@@ -21,9 +18,9 @@ suppressPackageStartupMessages({
   library(bs4Dash)
   library(shinyjs)
   library(shinyWidgets)
-  library(DT)
-  library(reactable)
-  library(joker)
+  # library(DT)
+  # library(reactable)
+  library(joker) # tanho63/joker
   library(sever)
   #library(ggiraph)
   library(details)

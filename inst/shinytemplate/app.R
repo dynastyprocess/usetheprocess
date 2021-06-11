@@ -1,15 +1,15 @@
 pkgload::load_all()
 
 ui <- dashboardPage(
-  title = glue("CHAP: {pkgload::pkg_name()}"),
+  title = glue("{pkgload::pkg_name()} v{pkgload::pkg_version()}"),
   sidebar_collapsed = TRUE,
-  navbar = chap_header(glue("CHAP: {pkgload::pkg_name()} ",
+  navbar = dp_header(glue("DP: {pkgload::pkg_name()} ",
                             "v{pkgload::pkg_version()}")),
-  sidebar = chap_sidebar(debug = TRUE),
+  sidebar = dp_sidebar(debug = TRUE),
   body = dashboardBody(
     useShinyjs(),
     use_sever(),
-    chap_cssjs(),
+    dp_cssjs(),
     tabItems(
       tabItem(
         tabName = "news",
@@ -27,7 +27,7 @@ server <- function(input, output, session) {
 
   #### FUNCTION LOAD ####
 
-  sever_chap()
+  sever_dp()
 
   observeEvent(input$debug, browser())
 

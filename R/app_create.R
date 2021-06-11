@@ -2,11 +2,12 @@
 #'
 #' @param path Name of folder to create app
 #' @param app_name Package name to use. Defaults to basename(path)
-#' @param open Open RStudio Project?
+#' @param open Logical: open RStudio Project?
+#' @param install_dependencies Logical: install packages?
 #'
 #' @export
 
-app_create <- function(path, app_name = basename(path), open = NULL){
+app_create <- function(path, app_name = basename(path), install_deps = NULL, open = NULL){
 
   path <- fs::path_expand(path)
 
@@ -38,6 +39,10 @@ app_create <- function(path, app_name = basename(path), open = NULL){
                  dir = path)
 
   cat_green_tick(glue::glue("Substituted {app_name} for AppName"))
+
+  if(is.null(install_deps)) install_deps = yesno(glue::glue("Install standard dependencies?"))
+
+  if(install_deps) remotes::install_deps(path, upgrade = "ask")
 
   fs::dir_tree(path = path, recurse = TRUE)
 

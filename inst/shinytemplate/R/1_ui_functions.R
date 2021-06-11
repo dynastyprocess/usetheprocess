@@ -1,4 +1,4 @@
-chap_header <- function(title) {
+dp_header <- function(title) {
   bs4Dash::dashboardHeader(
     skin = "dark",
     fixed = TRUE,
@@ -14,42 +14,35 @@ externalMenuItem <- function(text = NULL, href = NULL, icon = NULL) {
   ), class = "nav-item")
 }
 
-chap_sidebar <- function(debug = FALSE) {
+dp_sidebar <- function(debug = FALSE) {
 
   if(debug)(debug_button <- actionButton("debug","debug"))
   if(!debug)(debug_button <- shinyjs::hidden(actionButton("debug","debug")))
 
   bs4Dash::dashboardSidebar(
+    src = "https://raw.githubusercontent.com/dynastyprocess/graphics/main/.dynastyprocess/logohexonly.png",
     width = 250,
-    title = "CHAP",
+    title = "DynastyProcess",
     fixed = TRUE,
     skin = "dark",
     elevation = 3,
     collapsed = TRUE,
     opacity = 0.8,
     expand_on_hover = TRUE,
-    url = "http://shiny.caivan.com",
+    url = "http://dynastyprocess.com",
     br(),
     sidebarMenu(
-      menuItem("Tab 1", tabName = "first_tab", icon = "balance-scale-right"),
+      menuItem("Tab 1", tabName = "first_tab", icon = "quidditch"),
       menuItem("Dev News",  tabName = "news", icon = "news")
     ),
     br(),
     hr(),
     br(),
-    sidebarMenu(
-      id = "nav",
-      actionButton("log_out",
-                   "Log Out",
-                   icon = icon("power-off"),
-                   onclick = "window.open('/logout')"
-      )
-    ),
     debug_button
   )
 }
 
-chap_cssjs <- function() {
+dp_cssjs <- function() {
   tags$head( # JS and CSS ----
              # tags$script(
              #   "
@@ -59,17 +52,15 @@ chap_cssjs <- function() {
              #
              #        "
              # ),
-             tags$style(includeHTML("chap.css"))
+             tags$style(includeHTML("dp.css"))
   )
 }
 
-sever_chap <- function() {
+sever_dp <- function() {
   sever(
     tagList(
       h1("Disconnected"),
-      p(glue("Oops, looks like the app got disconnected.
-              If this is an error, please send Tan the inputs so he can reproduce the issue!
-             ")),
+      em(joker::dadjoke()),
       br(),
       shiny::tags$button(
         "Reload",
@@ -82,7 +73,7 @@ sever_chap <- function() {
   )
 }
 
-chap_errorhandler <- function(app_state, e, title = "Oh no, we've hit an error!") {
+dp_errorhandler <- function(app_state, e, title = "Oh no, we've hit an error!") {
   showModal(modalDialog(title = title, e$message))
   app_state$error <- "ERROR"
   # stop()

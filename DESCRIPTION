@@ -1,6 +1,6 @@
 Package: usetheprocess
 Title: Usethis R Templates for DynastyProcess
-Version: 0.1.0.01
+Version: 0.2.0
 Authors@R: 
     person(given = "Tan",
            family = "Ho",
@@ -14,6 +14,7 @@ Imports:
     cli,
     fs,
     glue,
+    remotes,
     rstudioapi,
     usethis,
     xfun

@@ -2,17 +2,19 @@
 % Please edit documentation in R/app_create.R
 \name{app_create}
 \alias{app_create}
-\title{Creates ABIC Shiny App}
+\title{Creates DynastyProcess Shiny App}
 \usage{
-app_create(path, app_name = basename(path), open = NULL)
+app_create(path, app_name = basename(path), install_deps = NULL, open = NULL)
 }
 \arguments{
 \item{path}{Name of folder to create app}
 
 \item{app_name}{Package name to use. Defaults to basename(path)}
 
-\item{open}{Open RStudio Project?}
+\item{open}{Logical: open RStudio Project?}
+
+\item{install_dependencies}{Logical: install packages?}
 }
 \description{
-Creates ABIC Shiny App
+Creates DynastyProcess Shiny App
 }
