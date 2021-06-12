@@ -137,29 +137,60 @@
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>Create the framework for a new Shiny app by running:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">usetheprocess</span><span class="fu">::</span><span class="fu"><a href="reference/app_create.html">app_create</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"demo/new_app"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#&gt; -- Creating dir ----------------------------------------------------------------</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co">#&gt; v Created app directory</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#&gt; v RStudio project initialisation</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#&gt; -- Copying app skeleton --------------------------------------------------------</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="co">#&gt; v Copied app skeleton</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt; v Substituted new_app for AppName</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#&gt; demo/new_app</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt; +-- app.R</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt; +-- chap.css</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="co">#&gt; +-- DESCRIPTION</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="co">#&gt; +-- Dockerfile</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt; +-- LICENSE</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="co">#&gt; +-- LICENSE.md</span></span>
-<span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt; +-- NEWS.md</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a><span class="co">#&gt; +-- new_app.Rproj</span></span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="co">#&gt; +-- R</span></span>
-<span id="cb3-17"><a href="#cb3-17"></a><span class="co">#&gt; |   +-- 0_packages.R</span></span>
-<span id="cb3-18"><a href="#cb3-18"></a><span class="co">#&gt; |   \-- 1_ui_functions.R</span></span>
-<span id="cb3-19"><a href="#cb3-19"></a><span class="co">#&gt; \-- tests</span></span>
-<span id="cb3-20"><a href="#cb3-20"></a><span class="co">#&gt;     \-- test_pipeline.R</span></span>
-<span id="cb3-21"><a href="#cb3-21"></a><span class="co">#&gt; -- Done ------------------------------------------------------------------------</span></span></code></pre></div>
+<code class="sourceCode R"><span class="fu">usetheprocess</span><span class="fu">::</span><span class="fu"><a href="reference/app_create.html">app_create</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"demo/new_app"</span><span class="op">)</span>
+<span class="co">#&gt; -- Creating dir ----------------------------------------------------------------</span>
+<span class="co">#&gt; v Created app directory</span>
+<span class="co">#&gt; v RStudio project initialisation</span>
+<span class="co">#&gt; -- Copying app skeleton --------------------------------------------------------</span>
+<span class="co">#&gt; v Copied app skeleton</span>
+<span class="co">#&gt; v Substituted new_app for AppName</span>
+<span class="co">#&gt; demo/new_app</span>
+<span class="co">#&gt; +-- app.R</span>
+<span class="co">#&gt; +-- DESCRIPTION</span>
+<span class="co">#&gt; +-- Dockerfile</span>
+<span class="co">#&gt; +-- dp.css</span>
+<span class="co">#&gt; +-- LICENSE</span>
+<span class="co">#&gt; +-- LICENSE.md</span>
+<span class="co">#&gt; +-- NEWS.md</span>
+<span class="co">#&gt; +-- new_app.Rproj</span>
+<span class="co">#&gt; +-- R</span>
+<span class="co">#&gt; |   +-- 0_packages.R</span>
+<span class="co">#&gt; |   \-- 1_ui_functions.R</span>
+<span class="co">#&gt; \-- tests</span>
+<span class="co">#&gt;     \-- test_pipeline.R</span>
+<span class="co">#&gt; -- Done ------------------------------------------------------------------------</span></code></pre></div>
 <p>and it will build an app skeleton.</p>
+<p>Create the skeleton of a new package by running: Create the framework for a new Shiny app by running:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">usetheprocess</span><span class="fu">::</span><span class="fu"><a href="reference/pkg_create.html">pkg_create</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"demo/new_pkg"</span><span class="op">)</span>
+<span class="co">#&gt; -- Creating app directory ------------------------------------------------------</span>
+<span class="co">#&gt; v Created app directory</span>
+<span class="co">#&gt; v RStudio project initialisation</span>
+<span class="co">#&gt; -- Copying package skeleton ----------------------------------------------------</span>
+<span class="co">#&gt; v Copied package skeleton</span>
+<span class="co">#&gt; v Substituted new_pkg for PkgName</span>
+<span class="co">#&gt; demo/new_pkg</span>
+<span class="co">#&gt; +-- codecov.yml</span>
+<span class="co">#&gt; +-- DESCRIPTION</span>
+<span class="co">#&gt; +-- LICENSE</span>
+<span class="co">#&gt; +-- LICENSE.md</span>
+<span class="co">#&gt; +-- man</span>
+<span class="co">#&gt; |   \-- pipe.Rd</span>
+<span class="co">#&gt; +-- NAMESPACE</span>
+<span class="co">#&gt; +-- new_pkg.Rproj</span>
+<span class="co">#&gt; +-- pkgdown</span>
+<span class="co">#&gt; |   +-- extra.css</span>
+<span class="co">#&gt; |   \-- _pkgdown.yml</span>
+<span class="co">#&gt; +-- PkgName.Rproj</span>
+<span class="co">#&gt; +-- R</span>
+<span class="co">#&gt; |   \-- utils.R</span>
+<span class="co">#&gt; +-- README.md</span>
+<span class="co">#&gt; +-- README.Rmd</span>
+<span class="co">#&gt; \-- tests</span>
+<span class="co">#&gt;     +-- testthat</span>
+<span class="co">#&gt;     |   \-- setup.R</span>
+<span class="co">#&gt;     \-- testthat.R</span>
+<span class="co">#&gt; -- Done ------------------------------------------------------------------------</span></code></pre></div>
 </div>
 </div>
   </div>
