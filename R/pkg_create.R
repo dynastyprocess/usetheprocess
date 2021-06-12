@@ -1,13 +1,13 @@
-#' Creates DynastyProcess Shiny App
+#' Creates Package Skeleton
 #'
-#' @param path Name of folder to create app
-#' @param app_name Package name to use. Defaults to basename(path)
-#' @param install_deps Logical: install packages?
+#' @param path Name of folder to create package
+#' @param pkg_name Package name to use. Defaults to basename(path)
+#' @param install_deps Logical: install standard dependencies?
 #' @param open Logical: open RStudio Project?
 #'
 #' @export
 
-app_create <- function(path, app_name = basename(path), install_deps = NULL, open = NULL){
+pkg_create <- function(path, pkg_name = basename(path), install_deps = FALSE, open = NULL){
 
   path <- fs::path_expand(path)
 
@@ -16,29 +16,30 @@ app_create <- function(path, app_name = basename(path), install_deps = NULL, ope
     if(!res) return(invisible())
   }
 
-  cli::cat_rule("Creating dir")
+  cli::cat_rule("Creating app directory")
 
   fs::dir_create(path, recurse = TRUE)
 
   cat_green_tick("Created app directory")
 
   cat_green_tick("RStudio project initialisation")
+
   rproj_path <- rstudioapi::initializeProject(path = path)
 
-  cli::cat_rule("Copying app skeleton")
+  cli::cat_rule("Copying package skeleton")
 
-  from <- dp_sys("shinytemplate")
+  from <- dp_sys("pkgtemplate")
 
   fs::dir_copy(path = from, new_path = path, overwrite = TRUE)
 
-  cat_green_tick("Copied app skeleton")
+  cat_green_tick("Copied package skeleton")
 
-  xfun::gsub_dir(pattern = "AppName",
-                 replacement = app_name,
+  xfun::gsub_dir(pattern = "PkgName",
+                 replacement = pkg_name,
                  recursive = TRUE,
                  dir = path)
 
-  cat_green_tick(glue::glue("Substituted {app_name} for AppName"))
+  cat_green_tick(glue::glue("Substituted {pkg_name} for PkgName"))
 
   if(is.null(install_deps)) install_deps = yesno(glue::glue("Install standard dependencies?"))
 
@@ -48,7 +49,7 @@ app_create <- function(path, app_name = basename(path), install_deps = NULL, ope
 
   cli::cat_rule("Done")
 
-  if(is.null(open)) open <- yesno(glue::glue("Open {app_name} now?"))
+  if(is.null(open)) open <- yesno(glue::glue("Open {pkg_name} now?"))
 
   if(open) rstudioapi::openProject(path = path, newSession = TRUE)
 
