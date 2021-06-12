@@ -7,9 +7,11 @@
 #'
 #' @export
 
-pkg_create <- function(path, pkg_name = basename(path), install_deps = FALSE, open = NULL){
+pkg_create <- function(path, pkg_name = basename(path), install_deps = interactive(), open = interactive()){
 
   path <- fs::path_expand(path)
+
+  if(fs::dir_exists(path) & !interactive()) return(invisible())
 
   if(fs::dir_exists(path)) {
     res <- yesno(glue::glue("Path {path} already exists, override?"))
@@ -41,7 +43,7 @@ pkg_create <- function(path, pkg_name = basename(path), install_deps = FALSE, op
 
   cat_green_tick(glue::glue("Substituted {pkg_name} for PkgName"))
 
-  if(is.null(install_deps)) install_deps = yesno(glue::glue("Install standard dependencies?"))
+  if(is.null(install_deps)) install_deps <- yesno(glue::glue("Install standard dependencies?"))
 
   if(install_deps) remotes::install_deps(path, upgrade = "ask")
 

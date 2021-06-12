@@ -7,9 +7,11 @@
 #'
 #' @export
 
-app_create <- function(path, app_name = basename(path), install_deps = NULL, open = NULL){
+app_create <- function(path, app_name = basename(path), install_deps = interactive(), open = interactive()){
 
   path <- fs::path_expand(path)
+
+  if(fs::dir_exists(path) & !interactive()) return(invisible())
 
   if(fs::dir_exists(path)) {
     res <- yesno(glue::glue("Path {path} already exists, override?"))

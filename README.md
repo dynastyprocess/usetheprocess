@@ -30,28 +30,62 @@ Create the framework for a new Shiny app by running:
 
 ``` r
 usetheprocess::app_create(path = "demo/new_app")
+#> -- Creating dir ----------------------------------------------------------------
+#> v Created app directory
+#> v RStudio project initialisation
+#> -- Copying app skeleton --------------------------------------------------------
+#> v Copied app skeleton
+#> v Substituted new_app for AppName
+#> demo/new_app
+#> +-- app.R
+#> +-- DESCRIPTION
+#> +-- Dockerfile
+#> +-- dp.css
+#> +-- LICENSE
+#> +-- LICENSE.md
+#> +-- NEWS.md
+#> +-- new_app.Rproj
+#> +-- R
+#> |   +-- 0_packages.R
+#> |   \-- 1_ui_functions.R
+#> \-- tests
+#>     \-- test_pipeline.R
+#> -- Done ------------------------------------------------------------------------
 ```
 
-    #> -- Creating dir ----------------------------------------------------------------
-    #> v Created app directory
-    #> v RStudio project initialisation
-    #> -- Copying app skeleton --------------------------------------------------------
-    #> v Copied app skeleton
-    #> v Substituted new_app for AppName
-    #> demo/new_app
-    #> +-- app.R
-    #> +-- chap.css
-    #> +-- DESCRIPTION
-    #> +-- Dockerfile
-    #> +-- LICENSE
-    #> +-- LICENSE.md
-    #> +-- NEWS.md
-    #> +-- new_app.Rproj
-    #> +-- R
-    #> |   +-- 0_packages.R
-    #> |   \-- 1_ui_functions.R
-    #> \-- tests
-    #>     \-- test_pipeline.R
-    #> -- Done ------------------------------------------------------------------------
-
 and it will build an app skeleton.
+
+Create the skeleton of a new package by running: Create the framework
+for a new Shiny app by running:
+
+``` r
+usetheprocess::pkg_create(path = "demo/new_pkg")
+#> -- Creating app directory ------------------------------------------------------
+#> v Created app directory
+#> v RStudio project initialisation
+#> -- Copying package skeleton ----------------------------------------------------
+#> v Copied package skeleton
+#> v Substituted new_pkg for PkgName
+#> demo/new_pkg
+#> +-- codecov.yml
+#> +-- DESCRIPTION
+#> +-- LICENSE
+#> +-- LICENSE.md
+#> +-- man
+#> |   \-- pipe.Rd
+#> +-- NAMESPACE
+#> +-- new_pkg.Rproj
+#> +-- pkgdown
+#> |   +-- extra.css
+#> |   \-- _pkgdown.yml
+#> +-- PkgName.Rproj
+#> +-- R
+#> |   \-- utils.R
+#> +-- README.md
+#> +-- README.Rmd
+#> \-- tests
+#>     +-- testthat
+#>     |   \-- setup.R
+#>     \-- testthat.R
+#> -- Done ------------------------------------------------------------------------
+```

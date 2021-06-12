@@ -38,14 +38,18 @@ remotes::install_github("dynastyprocess/usetheprocess")
 
 Create the framework for a new Shiny app by running:
 
-```{r eval = FALSE}
+```{r}
 usetheprocess::app_create(path = "demo/new_app")
-```
-```{r echo = FALSE}
-usetheprocess::app_create("demo/new_app", open = FALSE)
 ```
 
 and it will build an app skeleton.
+
+Create the skeleton of a new package by running:
+Create the framework for a new Shiny app by running:
+
+```{r }
+usetheprocess::pkg_create(path = "demo/new_pkg")
+```
 
 ```{r include = FALSE}
 fs::dir_delete("demo")
