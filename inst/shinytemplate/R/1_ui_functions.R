@@ -1,6 +1,13 @@
 dp_header <- function(title) {
   bs4Dash::dashboardHeader(
     skin = "dark",
+    status = "gray-dark",
+    title = dashboardBrand(
+      title = "DynastyProcess",
+      href = "https://dynastyprocess.com",
+      image = "https://raw.githubusercontent.com/dynastyprocess/graphics/main/.dynastyprocess/logohexonly.png",
+      opacity = 1
+    ),
     fixed = TRUE,
     border = TRUE,
     shiny::span(title, style = "font-size:1.5em;color:#ffffff")
@@ -14,26 +21,23 @@ externalMenuItem <- function(text = NULL, href = NULL, icon = NULL) {
   ), class = "nav-item")
 }
 
-dp_sidebar <- function(debug = FALSE) {
+dp_sidebar <- function(...,debug = FALSE) {
 
   if(debug)(debug_button <- actionButton("debug","debug"))
   if(!debug)(debug_button <- shinyjs::hidden(actionButton("debug","debug")))
 
   bs4Dash::dashboardSidebar(
-    src = "https://raw.githubusercontent.com/dynastyprocess/graphics/main/.dynastyprocess/logohexonly.png",
     width = 250,
-    title = "DynastyProcess",
     fixed = TRUE,
+    status = "gray-dark",
     skin = "dark",
     elevation = 3,
     collapsed = TRUE,
     opacity = 0.8,
     expand_on_hover = TRUE,
-    url = "http://dynastyprocess.com",
     br(),
     sidebarMenu(
-      menuItem("Tab 1", tabName = "first_tab", icon = "quidditch"),
-      menuItem("Dev News",  tabName = "news", icon = "news")
+      ...
     ),
     br(),
     hr(),

@@ -2,15 +2,18 @@
 suppressPackageStartupMessages({
 
   # Data Import
-  library(arrow)
+  # library(arrow)
 
   # Data Manipulation
-  library(tidyverse)
-  library(glue)
-  library(magrittr)
-  library(janitor)
-  library(lubridate)
-  library(hrbrthemes)
+  # library(tidyverse)
+  # library(dplyr)
+  # library(purrr)
+  # library(tidyr)
+  # library(glue)
+  # library(magrittr)
+  # library(janitor)
+  # library(lubridate)
+  # library(hrbrthemes)
   # hrbrthemes::import_plex_sans()
 
   # Shiny libraries
@@ -20,13 +23,13 @@ suppressPackageStartupMessages({
   library(shinyWidgets)
   # library(DT)
   # library(reactable)
-  library(joker) # tanho63/joker
+  # library(joker) # tanho63/joker
   library(sever)
   #library(ggiraph)
-  library(details)
+  # library(details)
 
   # Report libraries
-  library(writexl)
+  # library(writexl)
 
   options(shiny.reactlog = TRUE)
   options(stringsAsFactors = FALSE)

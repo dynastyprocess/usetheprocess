@@ -1,11 +1,15 @@
 pkgload::load_all()
 
 ui <- dashboardPage(
+  dark = NULL,
   title = glue("{pkgload::pkg_name()} v{pkgload::pkg_version()}"),
-  sidebar_collapsed = TRUE,
-  navbar = dp_header(glue("DP: {pkgload::pkg_name()} ",
-                            "v{pkgload::pkg_version()}")),
-  sidebar = dp_sidebar(debug = TRUE),
+  # sidebar_collapsed = TRUE,
+  header = dp_header(glue("DP: {pkgload::pkg_name()} ",
+                          "v{pkgload::pkg_version()}")),
+  sidebar = dp_sidebar(
+    menuItem("Tab 1", tabName = "first_tab", icon = icon("quidditch")),
+    # menuItem("Dev News",  tabName = "news", icon = icon("news")),
+    debug = TRUE),
   body = dashboardBody(
     useShinyjs(),
     use_sever(),
@@ -13,7 +17,7 @@ ui <- dashboardPage(
     tabItems(
       tabItem(
         tabName = "news",
-        box(width = 12, status = "dark", includeMarkdown("NEWS.md"))
+        box(width = 12, status = "gray-dark", includeMarkdown("NEWS.md"))
       ),
       tabItem(
         tabName = "first_tab"
